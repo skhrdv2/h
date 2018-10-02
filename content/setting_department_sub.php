@@ -223,7 +223,79 @@ t.on( 'order.dt search.dt', function () {
     });//จบ validator                
 });
 </script>
-		  <form action="" id="depart_subfrm" name="depart_subfrm" method="POST">
+<div class="modal fade text-left" id="department_sub_forms" role="dialog" aria-labelledby="myModalLabel33" >
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<label class="modal-title text-text-bold-600" id="myModalLabel33">Inline Login Form</label>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													  <span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+                                                <form action="" id="depart_subfrm" name="depart_subfrm" method="POST">
+											  	  <div class="modal-body">
+                                                  
+					
+                        <div class="form-group">
+                        <label for="department_sub_name">ชื่อฝ่าย/งาน</label>
+						<input type="text" class="form-control" name="department_sub_name" id="department_sub_name">
+                        </div>
+                            <div class="form-group">
+                             <label for="department_id">กลุ่มงาน</label>
+								<select name="department_id" id="department_id" class="select_head_department form-control" style="width:100%">
+   														<option value="">ระบุ</option>
+  														 <?php $result=$Db->query("SELECT * FROM hrd_department ");
+														foreach($result AS $row){?>
+   														<option value="<?=$row['department_id'];?>"><?=$row['department_name'];?></option>
+														<?php  }?>
+  													</select>
+                            </div>
+	                       
+                        <div class="form-group">
+								<label for="department_head_cid">หัวหน้ากลุ่มงาน</label>
+								<select  class="form-control select_head_department" name="department_head_cid" id="department_head_cid" style="width:100%">
+                                <option value="">ระบุ</option>
+                                <?php $resalut=$Db->query("SELECT ps.cid,CONCAT(pn.prename_name,ps.fname,'   ',ps.lname) AS fullname FROM hrd_person ps
+                                                            left outer join hrd_prename pn ON pn.prename_id=ps.prename_id ");
+                                    foreach($resalut AS $row) {?>
+                                   
+                                    <option value="<?=$row['cid'];?>"><?=$row['fullname'];?></option>
+                                    <?php }?>
+  								</select>
+											</div>
+                        <div class="row">
+                        <div class="form-group col-md-6">
+						<label for="department_tel">เบอร์โทร</label>
+						<input name="department_tel" id="department_tel" class="form-control">							
+						</div>
+						<div class="form-group col-md-6">
+						<label for="department_status">สถานะ</label>
+						<select name="department_status" id="department_status" class="form-control">
+						<option value="Y">เปิดใช้งาน</option>
+						<option value="N">ปิดใช้งาน</option>
+						</select>							
+						</div>
+                        </div>
+                        
+					
+                                <input type="text"  id="person_id_search">
+								<input type="text"  id="acc">
+								<input type="text"  id="department_sub_id">
+												  </div> <!-- จบ modal body -->
+												  <div class="modal-footer">
+                                                  <button type="reset"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+							                        <button type="submit" id="SaveBtn" class="btn btn-success">บันทึกข้อมูล</button>
+						
+												  </div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+ 
+		  
+		 
 		  
 		  <div class="modal fade" id="department_sub_forms"  >
 					<div class="modal-dialog modal-lg" role="document">
@@ -237,18 +309,10 @@ t.on( 'order.dt search.dt', function () {
 						<div class="modal-body">
 						<!--ส่วนแสดงฟอร์ม-->	
 						<div class="form-group col-12">
-						<label for="department_sub_name">ชื่อฝ่าย/งาน</label>
-						<input type="text" class="form-control" name="department_sub_name" id="department_sub_name">
+					
 						</div>
 						<div class="form-group col-12">
-													<label for="department_id">กลุ่มงาน</label>
-													<select name="department_id" id="department_id" class="select22 form-control" style="width:100%">
-   														<option value="">ระบุ</option>
-  														 <?php $result=$Db->query("SELECT * FROM hrd_department ");
-														foreach($result AS $row){?>
-   														<option value="<?=$row['department_id'];?>"><?=$row['department_name'];?></option>
-														<?php  }?>
-  													</select>
+												
 													</div>
 													<div class="form-group col-12">
 													<label for="department_sub_head_cid">หัวหน้าฝ่าย/งาน</label>
@@ -273,9 +337,7 @@ t.on( 'order.dt search.dt', function () {
 						</select>							
 						</div>
 					
-								<input type="text"  id="person_id_search">
-								<input type="text"  id="acc">
-								<input type="text"  id="department_sub_id">
+							
 
 						</div><!--จบส่วนแสดงฟอร์ม-->
 						<div class="modal-footer">
