@@ -116,28 +116,72 @@ t.on( 'order.dt search.dt', function () {
         } );
     } ).draw();
 	$('.buttons-print,.buttons-excel').addClass('btn btn-primary mr-1');
-    $('.select_head_department').select2({
-        placeholder: 'Select an item',
-        selectOnClose: true,
-        ajax: {
-          url: 'data/search_head_department.php',
-          dataType: 'json',
-          delay: 250,
-          processResults: function (data) {
-            return {
-              results: data
-            };
-          },
-          cache: true
-        }
-    });
+    $('.select_head_department').select2();
     $("#btnfrm").click(function(){
 				$("#acc").val("save");
 				$("#department_forms").modal();
-		});
+        });
+        //ค้นหา person_id
+    	$('#department_head_cid').change(function(){
+		$.post("data/search_person_id.php", {cid:$(this).val()}
+		).done(function (data) {
+        var ard2 = JSON.parse(data);
+        $("#person_id_search").val(ard2['person_id']);			
+        });
+        });	    
+        //จบค้นหา person_id
+
+          //เริ่ม validator
+          $("#departfrm").validate({
+            rules: {
+                department_name:
+                        { required: true,
+                            minlength: 3,
+                         //   maxlength: 10,
+                         /*   remote: {
+                                url: "modules/usermanager/chk_user.php",
+                                type: "post"
+                            }*/
+                        },
+            },
+            messages: {
+                department_name: {
+                    required: "ห้ามมีค่าว่าง ",
+                    minlength: "อย่างน้อย 3 ตัวอักษร",
+                },
+				
+			},
+				submitHandler: function (form) {
+					$.ajax({
+		 url:url,
+		 type:"POST",
+		 datatype:"json",
+		 data:{acc:$("#acc").val(),department_name:$("#department_name").val(),
+		    department_status:$("#department_status").val(),
+			department_head_cid:$("#department_head_cid").val(),
+			person_id_search:$("#person_id_search").val(),
+			department_id:$("#department_id").val(),
+			department_tel:$('#department_tel').val()},
+			 success:function(data){
+				 console.log(data);
+				$('#department_forms').modal('hide');
+				$("#department_name").val("");
+				$("#person_id_search").val('');
+				$("#department_head_cid").val('').trigger('change');
+				$("#acc").val('');
+				$("#department_id").val('');
+				$("#department_tel").val('');
+			   	msg_warnig(data);
+			 	t.ajax.reload();
+		  },
+		 
+	 });
+             },	
+
+    });//จบ validator                
 });
 </script>
-	<div class="modal fade text-left" id="department_forms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+	<div class="modal fade text-left" id="department_forms" role="dialog" aria-labelledby="myModalLabel33" >
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -155,9 +199,15 @@ t.on( 'order.dt search.dt', function () {
                         </div>
                         <div class="form-group">
 								<label for="department_head_cid">หัวหน้ากลุ่มงาน</label>
-								<select name="department_head_cid" id="department_head_cid" class="form-control select_head_department" style="width:100%">
-   								
-  											</select>
+								<select  class="form-control select_head_department" name="department_head_cid" id="department_head_cid" style="width:100%">
+                                <option value="">ระบุ</option>
+                                <?php $resalut=$Db->query("SELECT ps.cid,CONCAT(pn.prename_name,ps.fname,'   ',ps.lname) AS fullname FROM hrd_person ps
+                                                            left outer join hrd_prename pn ON pn.prename_id=ps.prename_id ");
+                                    foreach($resalut AS $row) {?>
+                                   
+                                    <option value="<?=$row['cid'];?>"><?=$row['fullname'];?></option>
+                                    <?php }?>
+  								</select>
 											</div>
                         <div class="row">
                         <div class="form-group col-md-6">

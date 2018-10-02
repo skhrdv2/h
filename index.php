@@ -65,6 +65,7 @@ $Db = new MySqlConn;
     <script src="includes/select2/js/select2.full.min.js" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
     <script src="app-assets/vendors/js/extensions/sweetalert.min.js" type="text/javascript"></script>
+    <script src="includes/validator/jquery.validate.min.js" type="text/javascript"></script>
     <script src="includes/fscript.js" type="text/javascript"></script>
   </head>
   <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
