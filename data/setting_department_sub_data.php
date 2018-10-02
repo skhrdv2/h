@@ -6,9 +6,8 @@ $sql="SELECT
 hds.department_sub_name,
 hds.department_sub_id,
 hd.department_name,
-concat(hp.fname,'  ',hp.lname) as head_department,
+concat(hp.fname,'  ',hp.lname) as department_head,
 hds.department_sub_tel,
-hds.department_sub_line_token,
 hds.department_sub_status
 
 from hrd_department_sub hds

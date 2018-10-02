@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-content collapse show">
                     <div class="card-body card-dashboard">
-					<p class="card-text">The foundation for DataTables is progressive enhancement, so it is very adept at reading table information directly from the DOM. This example shows how easy it is to add searching, ordering and paging to your HTML table by simply running DataTables on it.
+					<p class="card-text"> ข้อเสนอแนะ
 					</p>
 					<button class="btn btn-success mr-1 inputs-submin" id="btnfrm"><i class="ft-file"></i>&nbsp; เพิ่ม</button>
                         <div class="table-responsive">
@@ -48,8 +48,6 @@
 </section>
 <!-- Footer callback table -->
 <script>
-	
-	
 $(document).ready(function() {
 	var url="data/setting_department_data.php";
 	$.fn.dataTable.ext.errMode = 'throw';
@@ -98,7 +96,7 @@ $(document).ready(function() {
 				{
                     "targets":6,
                     "data": null,
-					"defaultContent":" <button type='button' class='btn btn-outline-secondary mr-1'><i class='fa fa-pencil'></i></button> <button type='button' class='btn btn-outline-danger mr-1'><i class='fa fa-trash-o'></i></button>",
+					"defaultContent":" <button type='button' id='edit' class='btn btn-outline-secondary mr-1'><i class='fa fa-pencil'></i></button> <button type='button' id='delete' class='btn btn-outline-danger mr-1'><i class='fa fa-trash-o'></i></button>",
 					'bSortable': false
 				},
 				
@@ -113,14 +111,59 @@ $(document).ready(function() {
 t.on( 'order.dt search.dt', function () {
         t.column(0,{search:'applied', order:'applied'}).nodes().each( function (cell, i) {
             cell.innerHTML = i+1;
-        } );
+        });
     } ).draw();
 	$('.buttons-print,.buttons-excel').addClass('btn btn-primary mr-1');
     $('.select_head_department').select2();
     $("#btnfrm").click(function(){
-				$("#acc").val("save");
-				$("#department_forms").modal();
+		$("#acc").val("save");
+		$("#department_forms").modal();
         });
+
+    $('.department tbody').on('click', '#edit', function () { //ดึง id มาแก้ไขจาก datatable
+            var data = t.row($(this).parents('tr')).data();
+			//alert(data['department_id']);
+			$("#department_forms").modal();
+		$.post(url,{acc:"query_edit",sql:data['department_id']})
+                    .done(function (data) {
+
+                        var ard = JSON.parse(data);
+                        $("#department_name").val(ard['department_name']);
+						$("#department_head_cid").val(ard['cid']).change()
+						$("#department_status").val(ard['department_status']);
+						$("#BtnAcc").attr("class", "btn btn-warning edit");
+						$("#acc").val("edit");
+						$("#department_id").val(ard['department_id']);
+						$("#department_tel").val(ard['department_tel']);
+					
+                    });      
+                  
+        });
+    //จบการแก้ไข
+    $('.department tbody').on('click', '#delete', function () {//ดึง id มาลบ datatable
+            var data = t.row($(this).parents('tr')).data();
+            swal({
+  title: 'คุณแน่ใจไหม?',
+  text: "การลบนี้อาจมีผลกระทบข้อมูลของโปรแกรม!",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'ใช่,ดำเนินการลบต่อไป!'
+}).then((result) => {
+  if (result.value) {
+    $.post(url, {
+                    sql:data['department_id'],
+                    acc: 'delete'
+                }).done(function (data) {
+					//console.log(data);
+							msg_warnig(data);
+                            t.ajax.reload();
+                        });
+  }
+});
+
+    });
         //ค้นหา person_id
     	$('#department_head_cid').change(function(){
 		$.post("data/search_person_id.php", {cid:$(this).val()}

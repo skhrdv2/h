@@ -22,7 +22,7 @@ ORDER BY hd.department_id desc";
      "department_name"=>$_POST['department_name'], 
      "department_tel"=>$_POST['department_tel'],
      "department_status"=>$_POST['department_status'], 
-     "department_head_cid"=>$_POST['department_head_cid'],
+     "cid"=>$_POST['department_head_cid'],
      "head_department"=>$_POST['person_id_search'],
     
  );
@@ -42,7 +42,7 @@ if($resualt=="success_insert"){
     $data = array(
      "department_name"=>$_POST['department_name'], 
      "department_status"=>$_POST['department_status'], 
-     "department_head_cid"=>$_POST['department_head_cid'],
+     "cid"=>$_POST['department_head_cid'],
      "head_department"=>$_POST['person_id_search'],
      "department_tel"=>$_POST['department_tel']
  );

@@ -1,13 +1,7 @@
 function msg_warnig(msg){
     var obj = JSON.parse(msg);
     if(obj.m=="success_insert"){
-        swal({
-            position: 'center',
-            type: 'success',
-            title: 'บันทึกสำเร็จ',
-            showConfirmButton: false,
-            timer: 1500
-          });
+        swal("บันทึกสำเร็จ", "", "success");
     }else if(obj.m=="success_update"){
         swal({
             position: 'center',

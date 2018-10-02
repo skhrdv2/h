@@ -43,7 +43,7 @@ $Db = new MySqlConn;
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/extensions/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="includes/sweet-alert/sweet-alert.css">
     <!-- END Custom CSS-->
     <script src="app-assets/libraries/jquery.min.js" type="text/javascript"></script>
     <script src="app-assets/libraries/bootstrap.min.js" type="text/javascript"></script>
@@ -64,7 +64,7 @@ $Db = new MySqlConn;
     <script src="app-assets/vendors/js/forms/repeater/jquery.repeater.min.js" type="text/javascript"></script>
     <script src="includes/select2/js/select2.full.min.js" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
-    <script src="app-assets/vendors/js/extensions/sweetalert.min.js" type="text/javascript"></script>
+    <script src="includes/sweet-alert/sweet-alert.js" type="text/javascript"></script>
     <script src="includes/validator/jquery.validate.min.js" type="text/javascript"></script>
     <script src="includes/fscript.js" type="text/javascript"></script>
   </head>
@@ -101,7 +101,8 @@ $Db = new MySqlConn;
                   <a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs teal"></i><span>ตั้งค่าข้อมูลพื้นฐาน</span><span class="selected-language"></span></a>
                 <div class="dropdown-menu" aria-labelledby="dropdown-flag">
                 <a class="dropdown-item" href="?page=setting_department"><i class="fa fa-th-large"></i> ตั้งค่ากลุ่มงาน</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-th-list"></i> ตั้งค่าฝ่าย/งาน</a>
+                <a class="dropdown-item" href="?page=setting_department_sub"><i class="fa fa-th-list"></i> ตั้งค่าฝ่าย/งาน</a>
+                <a class="dropdown-item" href="?page=setting_department_sub"><i class="fa fa-black-tie"></i> ผู้บริหาร</a>
                
               </li>
             </ul>
