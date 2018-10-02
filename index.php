@@ -38,6 +38,7 @@ $Db = new MySqlConn;
     <link rel="stylesheet" type="text/css" href="app-assets/css/core/colors/palette-gradient.css">
     <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/calendars/clndr.css">
     <link rel="stylesheet" type="text/css" href="app-assets/fonts/meteocons/style.min.css">
+    <link rel="stylesheet" type="text/css" href="includes/select2/css/select2.min.css">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -60,6 +61,8 @@ $Db = new MySqlConn;
     <script src="app-assets/vendors/js/tables/vfs_fonts.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/tables/buttons.html5.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/tables/buttons.print.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/forms/repeater/jquery.repeater.min.js" type="text/javascript"></script>
+    <script src="includes/select2/js/select2.full.min.js" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
     <script src="app-assets/vendors/js/extensions/sweetalert.min.js" type="text/javascript"></script>
     <script src="includes/fscript.js" type="text/javascript"></script>
