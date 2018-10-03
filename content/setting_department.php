@@ -184,7 +184,10 @@ t.on( 'order.dt search.dt', function () {
                         remote: {
                                 url: "data/chk_used.php",
                                 type: "post",
-                              //  data:{department_name:$("#old_department_name").val()}
+                                data:{old_department_name:$("#old_department_name").val()},
+success:function(data){
+console.log(data);
+}
                             },
                         },
             },
