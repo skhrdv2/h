@@ -119,27 +119,27 @@ t.on( 'order.dt search.dt', function () {
 		$("#department_sub_forms").modal();
         });
 
-    $('.department tbody').on('click', '#edit', function () { //ดึง id มาแก้ไขจาก datatable
+    $('.department_sub tbody').on('click', '#edit', function () { //ดึง id มาแก้ไขจาก datatable
             var data = t.row($(this).parents('tr')).data();
 			//alert(data['department_id']);
-			$("#department_forms").modal();
+			$("#department_sub_forms").modal();
 		$.post(url,{acc:"query_edit",sql:data['department_id']})
                     .done(function (data) {
 
                         var ard = JSON.parse(data);
-                        $("#department_name").val(ard['department_name']);
+                        $("#department_sub_name").val(ard['department_sub_name']);
 						$("#department_head_cid").val(ard['cid']).change()
-						$("#department_status").val(ard['department_status']);
-						$("#BtnAcc").attr("class", "btn btn-warning edit");
+						$("#department_sub_status").val(ard['department_status']);
 						$("#acc").val("edit");
-						$("#department_id").val(ard['department_id']);
-						$("#department_tel").val(ard['department_tel']);
+						$("#department_id").val(ard['department_id']).change()
+						$("#department_sub_id").val(ard['department_sub_id']);
+						$("#department_sub_tel").val(ard['department_sub_tel']);
 					
                     });      
                   
         });
     //จบการแก้ไข
-    $('.department tbody').on('click', '#delete', function () {//ดึง id มาลบ datatable
+    $('.department_sub tbody').on('click', '#delete', function () {//ดึง id มาลบ datatable
             var data = t.row($(this).parents('tr')).data();
             swal({
   title: 'คุณแน่ใจไหม?',
@@ -174,23 +174,30 @@ t.on( 'order.dt search.dt', function () {
         //จบค้นหา person_id
 
           //เริ่ม validator
-          $("#departfrm").validate({
+          $("#depart_subfrm").validate({
             rules: {
-                department_name:
+                department_sub_name:
                         { required: true,
                             minlength: 3,
-                         //   maxlength: 10,
-                         /*   remote: {
-                                url: "modules/usermanager/chk_user.php",
+							remote: {
+                                url: "data/chk_used.php",
                                 type: "post"
-                            }*/
-                        },
+                            },
+						},
+				department_id:
+						{
+							required:true
+						}
             },
             messages: {
-                department_name: {
+                department_sub_name: {
                     required: "ห้ามมีค่าว่าง ",
-                    minlength: "อย่างน้อย 3 ตัวอักษร",
-                },
+					minlength: "อย่างน้อย 3 ตัวอักษร",
+					remote:"ชื่อถูกใช้ไปแล้ว!"
+				},
+				department_id:{
+					 required:"กรุณาเลือก กลุ่มงาน"
+				}
 				
 			},
 				submitHandler: function (form) {
@@ -198,7 +205,7 @@ t.on( 'order.dt search.dt', function () {
 		 url:url,
 		 type:"POST",
 		 datatype:"json",
-		 data:{acc:$("#acc").val(),department_name:$("#department_name").val(),
+		 data:{acc:$("#acc").val(),department_sub_name:$("#department_sub_name").val(),
 		    department_status:$("#department_status").val(),
 			department_head_cid:$("#department_head_cid").val(),
 			person_id_search:$("#person_id_search").val(),
@@ -206,19 +213,19 @@ t.on( 'order.dt search.dt', function () {
 			department_tel:$('#department_tel').val()},
 			 success:function(data){
 				 console.log(data);
-				$('#department_forms').modal('hide');
-				$("#department_name").val("");
+				$('#department_sub_forms').modal('hide');
+				$("#department_sub_name").val("");
 				$("#person_id_search").val('');
 				$("#department_head_cid").val('').trigger('change');
 				$("#acc").val('');
-				$("#department_id").val('');
-				$("#department_tel").val('');
+				$("#department_id").val('').trigger('change');
+				$("#department_sub_tel").val('');
 			   	msg_warnig(data);
 			 	t.ajax.reload();
 		  },
 		 
 	 });
-             },	
+        },	
 
     });//จบ validator                
 });
@@ -297,56 +304,4 @@ t.on( 'order.dt search.dt', function () {
 		  
 		 
 		  
-		  <div class="modal fade" id="department_sub_forms"  >
-					<div class="modal-dialog modal-lg" role="document">
-						<div class="modal-content">
-						<div class="modal-header">
-							<h2 class="modal-title" id="exampleModalLabel">เพิ่มฝ่าย/งาน</h2>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						
-							</button>
-						</div>
-						<div class="modal-body">
-						<!--ส่วนแสดงฟอร์ม-->	
-						<div class="form-group col-12">
-					
-						</div>
-						<div class="form-group col-12">
-												
-													</div>
-													<div class="form-group col-12">
-													<label for="department_sub_head_cid">หัวหน้าฝ่าย/งาน</label>
-													<select name="department_sub_head_cid" id="department_sub_head_cid" class="select22 form-control" style="width:100%">
-   														<option value="">ระบุ</option>
-  														 <?php $result=$Db->query("SELECT ps.*,CONCAT(pn.prename_name,ps.fname,'   ',ps.lname) AS fullname FROM hrd_person ps
-   						    										left outer join hrd_prename pn ON pn.prename_id=ps.prename_id ");
-														foreach($result AS $row){?>
-   														<option value="<?=$row['cid'];?>"><?=$row['fullname'];?></option>
-														<?php  }?>
-  													</select>
-													</div>
-													<div class="form-group col-12">
-						<label for="department_sub_tel">เบอร์โทร</label>
-						<input name="department_sub_tel" id="department_sub_tel" class="form-control">							
-						</div>
-						<div class="form-group col-12">
-						<label for="department_sub_status">สถานะ</label>
-						<select name="department_sub_status" id="department_sub_status" class="form-control">
-						<option value="Y">เปิดใช้งาน</option>
-						<option value="N">ปิดใช้งาน</option>
-						</select>							
-						</div>
-					
-							
-
-						</div><!--จบส่วนแสดงฟอร์ม-->
-						<div class="modal-footer">
-							<button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="submit" id="SaveBtn" class="btn btn-success">บันทึกข้อมูล</button>
-						
-						</div>
-					</div>
-				</div>
-			</div>
-		  </form>	
-								
+	

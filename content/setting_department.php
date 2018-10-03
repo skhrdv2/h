@@ -180,17 +180,18 @@ t.on( 'order.dt search.dt', function () {
                 department_name:
                         { required: true,
                             minlength: 3,
-                         //   maxlength: 10,
-                         /*   remote: {
-                                url: "modules/usermanager/chk_user.php",
+                       
+                        remote: {
+                                url: "data/chk_used.php",
                                 type: "post"
-                            }*/
+                            },
                         },
             },
             messages: {
                 department_name: {
                     required: "ห้ามมีค่าว่าง ",
                     minlength: "อย่างน้อย 3 ตัวอักษร",
+                    remote: "ชื่อถูกใช้ไปแล้ว!"
                 },
 				
 			},
@@ -273,7 +274,7 @@ t.on( 'order.dt search.dt', function () {
 												  </div> <!-- จบ modal body -->
 												  <div class="modal-footer">
                                                   <button type="reset"  class="btn btn-secondary" data-dismiss="modal">Close</button>
-							                        <button type="submit" id="SaveBtn" class="btn btn-success">บันทึกข้อมูล</button>
+							                      <button type="submit"  class="btn btn-success">บันทึกข้อมูล</button>
 						
 												  </div>
 												</form>
