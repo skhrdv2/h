@@ -177,25 +177,32 @@ t.on( 'order.dt search.dt', function () {
           //เริ่ม validator
           $("#departfrm").validate({
             rules: {
+                
                 department_name:
-                        { required: true,
-                            minlength: 3,
+                        {      required: function () {
+               
+                            $.ajax({
+                                 url: "data/chk_used.php",
+                                type: "post",  
+                                data:{old_department_name:$("#old_department_name").val(),department_name:$("#department_name").val()},
+                                success:function(data){
+                                    console.log(data);
+                               return true;
+                                }
                             
-                        remote: {
-                                url: "data/chk_used.php",
-                                type: "post",
-                                data:{old_department_name:$("#old_department_name").val()},
-success:function(data){
-console.log(data);
-}
-                            },
+                            });
+                               
+                
+            }
+                        
+                      
                         },
             },
             messages: {
                 department_name: {
-                    required: "ห้ามมีค่าว่าง ",
+                    required: "dddd",
                     minlength: "อย่างน้อย 3 ตัวอักษร",
-                    remote: "ชื่อถูกใช้ไปแล้ว!"
+                   // remote: "ชื่อถูกใช้ไปแล้ว!"
                 },
 				
 			},
