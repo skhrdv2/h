@@ -6,7 +6,7 @@ $sql="SELECT hd.department_name,hd.department_id,
 concat(hp.fname,'  ',hp.lname) as head_department,
 hd.department_tel,hd.department_status,hd.last_update
 from hrd_department hd
-LEFT OUTER JOIN hrd_person hp on hp.person_id=hd.head_department
+LEFT OUTER JOIN hrd_person hp on hp.cid=hd.cid
 ORDER BY hd.department_id desc";
                 $sql = $Db->query($sql,'');
                $data = array();

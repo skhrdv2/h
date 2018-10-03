@@ -135,7 +135,7 @@ t.on( 'order.dt search.dt', function () {
 						$("#acc").val("edit");
 						$("#department_id").val(ard['department_id']);
 						$("#department_tel").val(ard['department_tel']);
-					
+                        $("#old_department_name").val(ard['department_name']);
                     });      
                   
         });
@@ -180,10 +180,11 @@ t.on( 'order.dt search.dt', function () {
                 department_name:
                         { required: true,
                             minlength: 3,
-                       
+                            
                         remote: {
                                 url: "data/chk_used.php",
-                                type: "post"
+                                type: "post",
+                              //  data:{department_name:$("#old_department_name").val()}
                             },
                         },
             },
@@ -271,6 +272,7 @@ t.on( 'order.dt search.dt', function () {
 								<input type="text"  id="person_id_search">
 								<input type="text"  id="acc">
 								<input type="text"  id="department_id">
+                                <input type="text"  id="old_department_name">
 												  </div> <!-- จบ modal body -->
 												  <div class="modal-footer">
                                                   <button type="reset"  class="btn btn-secondary" data-dismiss="modal">Close</button>
