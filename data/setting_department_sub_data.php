@@ -3,12 +3,13 @@ include_once('../lib/config.inc.php');
 $Db = new MySqlConn; 
 if($_POST['req']=='req'){
 $sql="SELECT 
-hds.department_sub_name,
 hds.department_sub_id,
+hds.department_sub_name,
 hd.department_name,
 concat(hp.fname,'  ',hp.lname) as department_head,
 hds.department_sub_tel,
 hds.department_sub_status,
+hds.last_update
 
 
 from hrd_department_sub hds
@@ -53,7 +54,7 @@ if($resualt=="success_insert"){
         "department_sub_name"=>$_POST['department_sub_name'],
         "department_id"=>$_POST['department_id'], 
         "department_sub_status"=>$_POST['department_sub_status'], 
-        "department_sub_head_cid"=>$_POST['department_sub_head_cid'],
+        "cid"=>$_POST['department_head_cid'],
         "department_head"=>$_POST['person_id_search'],
         "department_sub_tel"=>$_POST['department_sub_tel']
  );

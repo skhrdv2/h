@@ -83,9 +83,6 @@ if($resualt=="success_update"){
               }
  echo json_encode($row);
 }
-   
-
-
 
      ?>
 

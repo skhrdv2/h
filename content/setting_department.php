@@ -177,32 +177,24 @@ t.on( 'order.dt search.dt', function () {
           //เริ่ม validator
           $("#departfrm").validate({
             rules: {
-                
                 department_name:
-                        {      required: function () {
-               
-                            $.ajax({
-                                 url: "data/chk_used.php",
-                                type: "post",  
-                                data:{old_department_name:$("#old_department_name").val(),department_name:$("#department_name").val()},
-                                success:function(data){
-                                    console.log(data);
-                               return true;
-                                }
-                            
-                            });
-                               
-                
-            }
-                        
-                      
-                        },
+                {       required: true,
+                        minlength: 3,
+							remote: {
+                                url: "data/chk_used.php",
+                                type: "post",
+                                data: {
+                          old_department_name: function()
+                          { return $('#old_department_name').val();}
+                                      }
+                                    },//remote
+				},
             },
             messages: {
                 department_name: {
-                    required: "dddd",
+                    required: "กรุณากรอกข้อมูล",
                     minlength: "อย่างน้อย 3 ตัวอักษร",
-                   // remote: "ชื่อถูกใช้ไปแล้ว!"
+                    remote: "ชื่อถูกใช้ไปแล้ว!"
                 },
 				
 			},
@@ -226,6 +218,7 @@ t.on( 'order.dt search.dt', function () {
 				$("#acc").val('');
 				$("#department_id").val('');
 				$("#department_tel").val('');
+                $("#old_department_name").val('');
 			   	msg_warnig(data);
 			 	t.ajax.reload();
 		  },
@@ -279,10 +272,10 @@ t.on( 'order.dt search.dt', function () {
                         </div>
                         
 					
-								<input type="text"  id="person_id_search">
-								<input type="text"  id="acc">
-								<input type="text"  id="department_id">
-                                <input type="text"  id="old_department_name">
+								<input type="hidden"  id="person_id_search">
+								<input type="hidden"  id="acc">
+								<input type="hidden"  id="department_id">
+                                <input type="hidden"  id="old_department_name">
 												  </div> <!-- จบ modal body -->
 												  <div class="modal-footer">
                                                   <button type="reset"  class="btn btn-secondary" data-dismiss="modal">Close</button>

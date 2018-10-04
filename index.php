@@ -38,10 +38,18 @@ $Db = new MySqlConn;
     <link rel="stylesheet" type="text/css" href="app-assets/css/core/colors/palette-gradient.css">
     <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/calendars/clndr.css">
     <link rel="stylesheet" type="text/css" href="app-assets/fonts/meteocons/style.min.css">
+    
     <link rel="stylesheet" type="text/css" href="includes/select2/css/select2.min.css">
+
+
+    <link rel="stylesheet" type="text/css" href="includes/bootstrap-datepicker/css/css/bootstrap-datepicker3.min.css">
+    
+    
+    
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/validation/form-validation.css">
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="includes/sweet-alert/sweet-alert.css">
     <!-- END Custom CSS-->
@@ -66,6 +74,14 @@ $Db = new MySqlConn;
     <!-- END PAGE VENDOR JS-->
     <script src="includes/sweet-alert/sweet-alert.js" type="text/javascript"></script>
     <script src="includes/validator/jquery.validate.min.js" type="text/javascript"></script>
+
+
+    
+    <script src="includes/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="includes/bootstrap-datepicker/js/bootstrap-datepicker-thai.js" type="text/javascript"></script>
+    <script src="includes/bootstrap-datepicker/js/locales/bootstrap-datepicker.th.js" type="text/javascript"></script>
+   
+   
     <script src="includes/fscript.js" type="text/javascript"></script>
   </head>
   <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
@@ -102,7 +118,7 @@ $Db = new MySqlConn;
                 <div class="dropdown-menu" aria-labelledby="dropdown-flag">
                 <a class="dropdown-item" href="?page=setting_department"><i class="fa fa-th-large"></i> ตั้งค่ากลุ่มงาน</a>
                 <a class="dropdown-item" href="?page=setting_department_sub"><i class="fa fa-th-list"></i> ตั้งค่าฝ่าย/งาน</a>
-                <a class="dropdown-item" href="?page=setting_department_sub"><i class="fa fa-black-tie"></i> ผู้บริหาร</a>
+                <a class="dropdown-item" href="?page=setting_org_leader"><i class="fa fa-black-tie"></i> ผู้บริหาร</a>
                
               </li>
             </ul>

@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">ตั้งค่าฝ่าย/งาน</h4>
+                    <h4 class="card-title">ตั้งค่าผู้บริหาร</h4>
                     <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
@@ -16,21 +16,19 @@
                 </div>
                 <div class="card-content collapse show">
                     <div class="card-body card-dashboard">
-					<p class="card-text"> ข้อเสนอแนะ
+					<p class="card-text"><!-- ใส่ข้อความตรงนี้ -->
 					</p>
 					<button class="btn btn-success mr-1 inputs-submin" id="btnfrm"><i class="ft-file"></i>&nbsp; เพิ่ม</button>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered  department_sub">
+                            <table class="table table-striped table-bordered  department">
                                 <thead>
                                     <tr>
 										<th></th>
-										<th>ฝ่าย/งาน</th>
-                                        <th>กลุ่มงาน</th>
-                                        <th>หัวหน้ากลุมงาน</th>
-                                        <th>เบอร์โทร</th>
-                                        <th>สถานะ</th>
-                                        <th>วันที่แก้ไขล่าสุด</th>
-										
+                                        <th>ชื่อสกุล</th>
+                                        <th>ตำแหน่ง</th>
+                                        <th>วันที่รับตำแหน่ง</th>
+                                        <th>วันที่สิ้นสุดตำแหน่ง</th>
+										<th>สถานะ</th>
 										<th></th>
                                     </tr>
                                 </thead>
@@ -51,9 +49,9 @@
 <!-- Footer callback table -->
 <script>
 $(document).ready(function() {
-	var url="data/setting_department_sub_data.php";
+	var url="data/setting_org_leader_data.php";
 	$.fn.dataTable.ext.errMode = 'throw';
-	var t =$('.department_sub').DataTable({
+	var t =$('.department').DataTable({
 	
 		"oLanguage": {
 			"sEmptyTable":     "ไม่มีข้อมูลในตาราง",
@@ -84,18 +82,19 @@ $(document).ready(function() {
                     "data":{
                         req:'req'}
 				},
-				"aoColumns": [
-   { "data":null},
-	{"data":"department_sub_name"},
-	{"data":"department_name"},
-	{"data":"department_head"},
-	{"data":"department_sub_tel"},
-	{"data":"department_sub_status"},
-    {"data":"last_update"},
+	"aoColumns": [
+    { "data":null},
+	{"data":"hrd_leader_name"},
+	{"data":"org_leader_position_name"},
+	{"data":"hrd_leader_startdate"},
+	{"data":"hrd_leader_enddate"},
+	{"data":"org_leader_status"},
+
+	
 ],
 "columnDefs": [
 				{
-                    "targets":7,
+                    "targets":6,
                     "data": null,
 					"defaultContent":" <button type='button' id='edit' class='btn btn-outline-secondary mr-1'><i class='fa fa-pencil'></i></button> <button type='button' id='delete' class='btn btn-outline-danger mr-1'><i class='fa fa-trash-o'></i></button>",
 					'bSortable': false
@@ -115,34 +114,34 @@ t.on( 'order.dt search.dt', function () {
         });
     } ).draw();
 	$('.buttons-print,.buttons-excel').addClass('btn btn-primary mr-1');
-    $('.select_head_department').select2();
+    $('.select2').select2();
+    
     $("#btnfrm").click(function(){
 		$("#acc").val("save");
-		$("#department_sub_forms").modal();
+		$("#org_ledey_forms").modal();
         });
 
-    $('.department_sub tbody').on('click', '#edit', function () { //ดึง id มาแก้ไขจาก datatable
+    $('.department tbody').on('click', '#edit', function () { //ดึง id มาแก้ไขจาก datatable
             var data = t.row($(this).parents('tr')).data();
 			//alert(data['department_id']);
-			$("#department_sub_forms").modal();
-		$.post(url,{acc:"query_edit",sql:data['department_sub_id']})
+			$("#department_forms").modal();
+		$.post(url,{acc:"query_edit",sql:data['department_id']})
                     .done(function (data) {
 
                         var ard = JSON.parse(data);
-                        $("#department_sub_id").val(ard['department_sub_id']);
-                        $("#department_sub_name").val(ard['department_sub_name']);
-                        $("#old_department_sub_name").val(ard['department_sub_name']);
+                        $("#department_name").val(ard['department_name']);
 						$("#department_head_cid").val(ard['cid']).change()
-						$("#department_sub_status").val(ard['department_sub_status']);
+						$("#department_status").val(ard['department_status']);
+						$("#BtnAcc").attr("class", "btn btn-warning edit");
 						$("#acc").val("edit");
-						$("#department_id").val(ard['department_id']).change()
-						$("#department_sub_tel").val(ard['department_sub_tel']);
-					
+						$("#department_id").val(ard['department_id']);
+						$("#department_tel").val(ard['department_tel']);
+                        $("#old_department_name").val(ard['department_name']);
                     });      
                   
         });
     //จบการแก้ไข
-    $('.department_sub tbody').on('click', '#delete', function () {//ดึง id มาลบ datatable
+    $('.department tbody').on('click', '#delete', function () {//ดึง id มาลบ datatable
             var data = t.row($(this).parents('tr')).data();
             swal({
   title: 'คุณแน่ใจไหม?',
@@ -155,140 +154,114 @@ t.on( 'order.dt search.dt', function () {
 }).then((result) => {
   if (result.value) {
     $.post(url, {
-                    sql:data['department_sub_id'],
+                    sql:data['department_id'],
                     acc: 'delete'
                 }).done(function (data) {
 					//console.log(data);
 							msg_warnig(data);
                             t.ajax.reload();
-                          
                         });
   }
 });
 
     });
-        //ค้นหา person_id
-    	$('#department_head_cid').change(function(){
-		$.post("data/search_person_id.php", {cid:$(this).val()}
-		).done(function (data) {
-        var ard2 = JSON.parse(data);
-        $("#person_id_search").val(ard2['person_id']);			
-        });
-        });	    
-        //จบค้นหา person_id
-
+       
           //เริ่ม validator
-          $("#depart_subfrm").validate({
+          $("#orgfrm").validate({
             rules: {
-                department_sub_name:
-                        { required: true,
-                            minlength: 3,
-							remote: {
-                                url: "data/chk_used.php",
-                                type: "post",
-                                data: {
-                          old_department_sub_name: function()
-                          { return $('#old_department_sub_name').val();}
-                                      }
-                            },
-						},
-				department_id:
-						{
-							required:true
-						}
+                hrd_leader_name:
+                {       required: true,
+                    
+						
+				},
             },
             messages: {
-                department_sub_name: {
-                    required: "ห้ามมีค่าว่าง ",
-					minlength: "อย่างน้อย 3 ตัวอักษร",
-					remote:"ชื่อถูกใช้ไปแล้ว!"
-				},
-				department_id:{
-					 required:"กรุณาเลือก กลุ่มงาน"
-				}
+                hrd_leader_name: {
+                    required: "กรุณาเลือกชื่อ",
+                   
+                   
+                },
 				
 			},
 				submitHandler: function (form) {
-					$.ajax({
+                   
+		$.ajax({
 		 url:url,
 		 type:"POST",
 		 datatype:"json",
-		 data:{acc:$("#acc").val(),
-         department_sub_name:$("#department_sub_name").val(),
-		 department_head_cid:$("#department_head_cid").val(),
-         department_sub_id:$("#department_sub_id").val(),
-		 person_id_search:$("#person_id_search").val(),
-		 department_id:$("#department_id").val(),
-		 department_sub_tel:$('#department_sub_tel').val(),
-         department_sub_status:$("#department_sub_status").val()},
+         data:{
+            acc:$("#acc").val(),
+            hrd_leader_name:$("#hrd_leader_name").val(),
+		    org_leader_position_name:$("#org_leader_position_name").val(),
+			org_leader_status:$("#org_leader_status").val(),
+			hrd_leader_startdate:$("#hrd_leader_startdate").val()},
+			//department_id:$("#department_id").val(),
+			
 			 success:function(data){
 				 console.log(data);
-				$('#department_sub_forms').modal('hide');
-				$("#department_sub_name").val("");
-                $("#old_department_sub_name").val("");
-				$("#person_id_search").val('');
-				$("#department_head_cid").val('').trigger('change');
+				$('#org_ledey_forms').modal('hide');
+			    $("#hrd_leader_name").val('').trigger('change');
+				$("#org_leader_position_name").val('');
 				$("#acc").val('');
-				$("#department_id").val('').trigger('change');
-				$("#department_sub_tel").val('');
+				$("#hrd_leader_startdate").val('');
 			   	msg_warnig(data);
 			 	t.ajax.reload();
 		  },
-		 
+       
 	 });
-        },	
+             },	
 
-    });//จบ validator                
+    });//จบ validator   
+  
+    $('.datepicker').datepicker({
+    autoclose: true,
+    language: "th-th",
+    format: 'yyyy-mm-dd',
+    todayHighlight: true,
+    
+});
+
 });
 </script>
-<div class="modal fade text-left" id="department_sub_forms" role="dialog" aria-labelledby="myModalLabel33" >
+	<div class="modal fade text-left" id="org_ledey_forms" role="dialog" aria-labelledby="myModalLabel33" >
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
-													<label class="modal-title text-text-bold-600" id="myModalLabel33">Inline Login Form</label>
+													<label class="modal-title text-text-bold-600" id="myModalLabel33">เพิ่มชื่อผู้บริหาร</label>
 													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 													  <span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-                                                <form action="" id="depart_subfrm" name="depart_subfrm" method="POST">
+                                                <form action="" id="orgfrm" name="orgfrm" method="POST">
 											  	  <div class="modal-body">
                                                   
 					
                         <div class="form-group">
-                        <label for="department_sub_name">ชื่อฝ่าย/งาน</label>
-						<input type="text" class="form-control" name="department_sub_name" id="department_sub_name">
-                        </div>
-                            <div class="form-group">
-                             <label for="department_id">กลุ่มงาน</label>
-								<select name="department_id" id="department_id" class="select_head_department form-control" style="width:100%">
-   														<option value="">ระบุ</option>
-  														 <?php $result=$Db->query("SELECT * FROM hrd_department ");
-														foreach($result AS $row){?>
-   														<option value="<?=$row['department_id'];?>"><?=$row['department_name'];?></option>
-														<?php  }?>
-  													</select>
-                            </div>
-	                       
-                        <div class="form-group">
-								<label for="department_head_cid">หัวหน้ากลุ่มงาน</label>
-								<select  class="form-control select_head_department" name="department_head_cid" id="department_head_cid" style="width:100%">
+								<label for="hrd_leader_name">ชื่อ-สกุล</label>
+								<select  class="form-control select2" name="hrd_leader_name" id="hrd_leader_name" style="width:100%">
                                 <option value="">ระบุ</option>
                                 <?php $resalut=$Db->query("SELECT ps.cid,CONCAT(pn.prename_name,ps.fname,'   ',ps.lname) AS fullname FROM hrd_person ps
                                                             left outer join hrd_prename pn ON pn.prename_id=ps.prename_id ");
                                     foreach($resalut AS $row) {?>
                                    
-                                    <option value="<?=$row['cid'];?>"><?=$row['fullname'];?></option>
+                                    <option value="<?=$row['fullname'];?>"><?=$row['fullname'];?></option>
                                     <?php }?>
   								</select>
 											</div>
                         <div class="row">
+                        <div class="form-group col-md-12">
+						<label for="org_leader_position_name">ตำแหน่ง</label>
+						<input name="org_leader_position_name" id="org_leader_position_name" class="form-control">							
+						</div>
+                        </div>
+                        <div class="row">
                         <div class="form-group col-md-6">
-						<label for="department_sub_tel">เบอร์โทร</label>
-						<input name="department_sub_tel" id="department_sub_tel" class="form-control">							
+						<label for="hrd_leader_startdate">วันที่รับตำแหน่ง</label>
+						<input name="hrd_leader_startdate" id="hrd_leader_startdate" class="form-control datepicker" autocomplete="off"  >							
 						</div>
 						<div class="form-group col-md-6">
-						<label for="department_sub_status">สถานะ</label>
-						<select name="department_sub_status" id="department_sub_status" class="form-control">
+						<label for="org_leader_status">สถานะ</label>
+						<select name="org_leader_status" id="org_leader_status" class="form-control">
 						<option value="Y">เปิดใช้งาน</option>
 						<option value="N">ปิดใช้งาน</option>
 						</select>							
@@ -296,14 +269,14 @@ t.on( 'order.dt search.dt', function () {
                         </div>
                         
 					
-                                <input type="text"  id="person_id_search">
+								<input type="text"  id="person_id_search">
 								<input type="text"  id="acc">
-								<input type="text"  id="department_sub_id">
-                                <input type="text"  id="old_department_sub_name">
+								<input type="text"  id="department_id">
+                                <input type="text"  id="old_department_name">
 												  </div> <!-- จบ modal body -->
 												  <div class="modal-footer">
                                                   <button type="reset"  class="btn btn-secondary" data-dismiss="modal">Close</button>
-							                        <button type="submit" id="SaveBtn" class="btn btn-success">บันทึกข้อมูล</button>
+							                      <button type="submit"  class="btn btn-success">บันทึกข้อมูล</button>
 						
 												  </div>
 												</form>
@@ -315,5 +288,3 @@ t.on( 'order.dt search.dt', function () {
  
 		  
 		 
-		  
-	

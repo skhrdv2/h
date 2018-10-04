@@ -1,4 +1,4 @@
-<?php
+<?php //ยังไม่ได้ใช้งาน
 include_once('../lib/config.inc.php');
 $Db = new MySqlConn;
 $sql="SELECT ps.cid,CONCAT(pn.prename_name,ps.fname,'   ',ps.lname) AS fullname FROM hrd_person ps
