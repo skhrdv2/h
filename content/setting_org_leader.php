@@ -20,7 +20,7 @@
 					</p>
 					<button class="btn btn-success mr-1 inputs-submin" id="btnfrm"><i class="ft-file"></i>&nbsp; เพิ่ม</button>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered  department">
+                            <table class="table table-striped table-bordered  org_leader_tb">
                                 <thead>
                                     <tr>
 										<th></th>
@@ -51,7 +51,7 @@
 $(document).ready(function() {
 	var url="data/setting_org_leader_data.php";
 	$.fn.dataTable.ext.errMode = 'throw';
-	var t =$('.department').DataTable({
+	var t =$('.org_leader_tb').DataTable({
 	
 		"oLanguage": {
 			"sEmptyTable":     "ไม่มีข้อมูลในตาราง",
@@ -84,7 +84,7 @@ $(document).ready(function() {
 				},
 	"aoColumns": [
     { "data":null},
-	{"data":"hrd_leader_name"},
+	{"data":"fullname"},
 	{"data":"org_leader_position_name"},
 	{"data":"hrd_leader_startdate"},
 	{"data":"hrd_leader_enddate"},
@@ -121,27 +121,26 @@ t.on( 'order.dt search.dt', function () {
 		$("#org_ledey_forms").modal();
         });
 
-    $('.department tbody').on('click', '#edit', function () { //ดึง id มาแก้ไขจาก datatable
+    $('.org_leader_tb tbody').on('click', '#edit', function () { //ดึง id มาแก้ไขจาก datatable
             var data = t.row($(this).parents('tr')).data();
-			//alert(data['department_id']);
-			$("#department_forms").modal();
-		$.post(url,{acc:"query_edit",sql:data['department_id']})
+			//alert(data['hrd_leader_id']);
+			$("#org_ledey_forms").modal();
+		$.post(url,{acc:"query_edit",sql:data['hrd_leader_id']})
                     .done(function (data) {
 
                         var ard = JSON.parse(data);
-                        $("#department_name").val(ard['department_name']);
-						$("#department_head_cid").val(ard['cid']).change()
-						$("#department_status").val(ard['department_status']);
-						$("#BtnAcc").attr("class", "btn btn-warning edit");
+                        $("#hrd_leader_id").val(ard['hrd_leader_id']);
+						$("#hrd_leader_cid").val(ard['hrd_leader_cid']).change()
+						$("#org_leader_position_name").val(ard['org_leader_position_name']);
 						$("#acc").val("edit");
-						$("#department_id").val(ard['department_id']);
-						$("#department_tel").val(ard['department_tel']);
-                        $("#old_department_name").val(ard['department_name']);
+						$("#org_leader_status").val(ard['org_leader_status']);
+						$("#hrd_leader_startdate").val(ard['hrd_leader_startdate']);
+                       
                     });      
                   
         });
     //จบการแก้ไข
-    $('.department tbody').on('click', '#delete', function () {//ดึง id มาลบ datatable
+    $('.org_leader_tb tbody').on('click', '#delete', function () {//ดึง id มาลบ datatable
             var data = t.row($(this).parents('tr')).data();
             swal({
   title: 'คุณแน่ใจไหม?',
@@ -154,7 +153,7 @@ t.on( 'order.dt search.dt', function () {
 }).then((result) => {
   if (result.value) {
     $.post(url, {
-                    sql:data['department_id'],
+                    sql:data['hrd_leader_id'],
                     acc: 'delete'
                 }).done(function (data) {
 					//console.log(data);
@@ -191,16 +190,17 @@ t.on( 'order.dt search.dt', function () {
 		 datatype:"json",
          data:{
             acc:$("#acc").val(),
-            hrd_leader_name:$("#hrd_leader_name").val(),
-		    org_leader_position_name:$("#org_leader_position_name").val(),
+		    hrd_leader_cid:$("#hrd_leader_cid").val(),
 			org_leader_status:$("#org_leader_status").val(),
+            hrd_org_leader_id:$("#hrd_org_leader_id").val(),
+            leader_position_name:$("#leader_position_name").val(),
 			hrd_leader_startdate:$("#hrd_leader_startdate").val()},
 			//department_id:$("#department_id").val(),
 			
 			 success:function(data){
 				 console.log(data);
 				$('#org_ledey_forms').modal('hide');
-			    $("#hrd_leader_name").val('').trigger('change');
+			    $("#org_leader_cid").val('').trigger('change');
 				$("#org_leader_position_name").val('');
 				$("#acc").val('');
 				$("#hrd_leader_startdate").val('');
@@ -237,21 +237,21 @@ t.on( 'order.dt search.dt', function () {
                                                   
 					
                         <div class="form-group">
-								<label for="hrd_leader_name">ชื่อ-สกุล</label>
-								<select  class="form-control select2" name="hrd_leader_name" id="hrd_leader_name" style="width:100%">
+								<label for="org_leader_cid">ชื่อ-สกุล</label>
+								<select  class="form-control select2" name="hrd_leader_cid" id="hrd_leader_cid" style="width:100%">
                                 <option value="">ระบุ</option>
                                 <?php $resalut=$Db->query("SELECT ps.cid,CONCAT(pn.prename_name,ps.fname,'   ',ps.lname) AS fullname FROM hrd_person ps
                                                             left outer join hrd_prename pn ON pn.prename_id=ps.prename_id ");
                                     foreach($resalut AS $row) {?>
                                    
-                                    <option value="<?=$row['fullname'];?>"><?=$row['fullname'];?></option>
+                                    <option value="<?=$row['cid'];?>"><?=$row['fullname'];?></option>
                                     <?php }?>
   								</select>
 											</div>
                         <div class="row">
                         <div class="form-group col-md-12">
-						<label for="org_leader_position_name">ตำแหน่ง</label>
-						<input name="org_leader_position_name" id="org_leader_position_name" class="form-control">							
+						<label for="leader_position_name">ตำแหน่ง</label>
+						<input name="leader_position_name" id="leader_position_name" class="form-control">							
 						</div>
                         </div>
                         <div class="row">
@@ -269,10 +269,10 @@ t.on( 'order.dt search.dt', function () {
                         </div>
                         
 					
-								<input type="text"  id="person_id_search">
+							
 								<input type="text"  id="acc">
-								<input type="text"  id="department_id">
-                                <input type="text"  id="old_department_name">
+                                <input type="text"  id="hrd_leader_id">
+                              
 												  </div> <!-- จบ modal body -->
 												  <div class="modal-footer">
                                                   <button type="reset"  class="btn btn-secondary" data-dismiss="modal">Close</button>

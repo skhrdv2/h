@@ -231,7 +231,7 @@ $Db = new MySqlConn;
 
     <div class="main-menu menu-fixed menu-dark menu-accordion    menu-shadow " data-scroll-to-active="true">
       <div class="main-menu-content">
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+     <!--   <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
           <li class=" nav-item"><a href="index.html"><i class="icon-home"></i><span class="menu-title" data-i18n="nav.dash.main">Dashboard</span><span class="badge badge badge-info badge-pill float-right mr-2">5</span></a>
             <ul class="menu-content">
               <li class="active"><a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">eCommerce</a>
@@ -1297,7 +1297,7 @@ $Db = new MySqlConn;
           </li>
           <li class=" nav-item"><a href="https://pixinvent.com/robust-bootstrap-admin-template/documentation"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.support_documentation.main">Documentation</span></a>
           </li>
-        </ul>
+        </ul>-->
       </div>
     </div>
 

@@ -5,19 +5,19 @@
 	    <div class="card">
 	        <div class="card-head">
 	            <div class="card-header">
-	            	<h4 class="card-title">All Contacts</h4>
+	            	<h4 class="card-title"></h4>
 		            <a class="heading-elements-toggle"><i class="ft-ellipsis-h font-medium-3"></i></a>
         			<div class="heading-elements">
-		                <button class="btn btn-primary btn-sm"><i class="ft-plus white"></i> เพิ่มเจ้าหน้าที่</button>
+		                <button class="btn btn-primary btn-lg"><i class="ft-plus white"></i> เพิ่มเจ้าหน้าที่</button>
             			<span class="dropdown">
-	                        <button id="btnSearchDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-warning dropdown-toggle dropdown-menu-right btn-sm"><i class="ft-download-cloud white"></i></button>
+	                        <button id="btnSearchDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-warning dropdown-toggle dropdown-menu-right btn-lg"><i class="ft-download-cloud white"></i></button>
 	                        <span aria-labelledby="btnSearchDrop1" class="dropdown-menu mt-1 dropdown-menu-right">
 	                            <a href="#" class="dropdown-item"><i class="ft-upload"></i> Import</a>
 	                            <a href="#" class="dropdown-item"><i class="ft-download"></i> Export</a>
 	                            <a href="#" class="dropdown-item"><i class="ft-shuffle"></i> Find Duplicate</a>
 	                        </span>
 	                    </span>
-            			<button class="btn btn-default btn-sm"><i class="ft-settings white"></i></button>
+            			<button class="btn btn-default btn-lg"><i class="ft-settings white"></i></button>
 		            </div>
 	            </div>
 	        </div>
@@ -28,17 +28,17 @@
 		                <table id="users-contacts" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle">
 					        <thead>
 					            <tr>
+								<th></th>
+								
 					                <th></th>
-					                <th>Name</th>
-					                <th>Email</th>
-					                <th>Phone</th>
-					                <th>Favorite</th>
-					                <th>Actions</th>
+									<th>ชื่อ-สกุล</th>
+					                <th>ตำแหน่ง</th>
+					              
 					            </tr>
 					        </thead>
 					        <tbody>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
+					         <!--   <tr>
+					                
 					                <td>
 					                	<div class="media">
 							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span></div>
@@ -65,863 +65,16 @@
 					                        </span>
 					                    </span>
 					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Margaret Govan</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">margaret@example.com</a>
-					                </td>
-					                <td>+125-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop3" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-4.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Eugene Woods</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">eugene@example.com</a>
-					                </td>
-					                <td>+987-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop4" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Russell Bryant</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">russell@example.com</a>
-					                </td>
-					                <td>+235-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop5" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop5" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Cynthia Tucker</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">cynthia@example.com</a>
-					                </td>
-					                <td>+987-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop6" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop6" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-busy rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-5.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Scott Marshall</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">scott@example.com</a>
-					                </td>
-					                <td>+954-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop7" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop7" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-away rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-8.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Catherine Smith</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">catherine@example.com</a>
-					                </td>
-					                <td>+254-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop8" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop8" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-off rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-7.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Eric Howard</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">eric@example.com</a>
-					                </td>
-					                <td>+545-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop9" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop9" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-9.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Donald Watkins</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">donald@example.com</a>
-					                </td>
-					                <td>+987-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop10" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop10" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-10.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Brittany Barnes</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">brittany@example.com</a>
-					                </td>
-					                <td>+632-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop11" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop11" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-busy rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-5.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Scott Marshall</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">scott@example.com</a>
-					                </td>
-					                <td>+954-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop12" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop12" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-away rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-8.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Catherine Smith</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">catherine@example.com</a>
-					                </td>
-					                <td>+254-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop13" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop13" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-off rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-7.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Eric Howard</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">eric@example.com</a>
-					                </td>
-					                <td>+545-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop14" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop14" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-9.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Donald Watkins</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">donald@example.com</a>
-					                </td>
-					                <td>+987-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop15" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop15" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-10.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Brittany Barnes</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">brittany@example.com</a>
-					                </td>
-					                <td>+632-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop16" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop16" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Alice Collins</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">alice@example.com</a>
-					                </td>
-					                <td>+658-254-256</td>
-					                <td class="text-center"><i class="fa fa-star  yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop17" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop17" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Margaret Govan</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">margaret@example.com</a>
-					                </td>
-					                <td>+125-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop18" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop18" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-4.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Eugene Woods</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">eugene@example.com</a>
-					                </td>
-					                <td>+987-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop19" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop19" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Russell Bryant</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">russell@example.com</a>
-					                </td>
-					                <td>+235-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop20" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop20" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Cynthia Tucker</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">cynthia@example.com</a>
-					                </td>
-					                <td>+987-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop21" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop21" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            
-					            
-					            
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-4.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Eugene Woods</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">eugene@example.com</a>
-					                </td>
-					                <td>+987-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop22" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop22" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Russell Bryant</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">russell@example.com</a>
-					                </td>
-					                <td>+235-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop23" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop23" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Cynthia Tucker</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">cynthia@example.com</a>
-					                </td>
-					                <td>+987-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop24" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop24" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Alice Collins</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">alice@example.com</a>
-					                </td>
-					                <td>+658-254-256</td>
-					                <td class="text-center"><i class="fa fa-star  yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop25" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop25" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Margaret Govan</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">margaret@example.com</a>
-					                </td>
-					                <td>+125-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop26" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop26" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-busy rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-5.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Scott Marshall</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">scott@example.com</a>
-					                </td>
-					                <td>+954-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop27" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop27" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-away rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-8.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Catherine Smith</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">catherine@example.com</a>
-					                </td>
-					                <td>+254-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop28" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop28" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-off rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-7.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Eric Howard</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">eric@example.com</a>
-					                </td>
-					                <td>+545-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop29" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop29" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-9.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Donald Watkins</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">donald@example.com</a>
-					                </td>
-					                <td>+987-654-564</td>
-					                <td class="text-center"><i class="fa fa-star yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop30" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop30" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
-					            <tr>
-					                <td><input type="checkbox" class="input-chk"></td>
-					                <td>
-					                	<div class="media">
-							                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-10.png" alt="avatar"><i></i></span></div>
-							                <div class="media-body media-middle">
-							                    <a href="#" class="media-heading">Brittany Barnes</a>
-							                </div>
-							            </div>
-					                </td>
-				                    <td class="text-center">
-					                	<a href="mailto:email@example.com">brittany@example.com</a>
-					                </td>
-					                <td>+632-654-564</td>
-					                <td class="text-center"><i class="fa fa-star-o yellow darken-2"></i></td>
-					                <td>
-					                	<span class="dropdown">
-					                        <button id="btnSearchDrop31" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
-					                        <span aria-labelledby="btnSearchDrop31" class="dropdown-menu mt-1 dropdown-menu-right">
-					                            <a href="#" class="dropdown-item"><i class="ft-trash-2"></i> Edit</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-edit-2"></i> Delete</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
-					                            <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
-					                        </span>
-					                    </span>
-					                </td>
-					            </tr>
+					            </tr>-->
+					          
 					        </tbody>
 					        <tfoot>
 					            <tr>
-					                <th></th>
-					                <th>Name</th>
-					                <th>Email</th>
-					                <th>Phone</th>
-					                <th>Favorite</th>
-					                <th>Actions</th>
-					            </tr>
+								<th></th>
+								<th></th>
+								
+					                <th>ชื่อ-สกุล</th>
+					               <th></th>
 					        </tfoot>
 					    </table>
 				    </div>
@@ -936,31 +89,8 @@
           <div class="sidebar"><div class="bug-list-sidebar-content">
     <!-- Predefined Views -->
     <div class="card">
-        <div class="card-head">
-            <div class="media p-1">
-                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span></div>
-                <div class="media-body media-middle">
-                    <h5 class="media-heading">Margaret Govan</h5>
-                </div>
-            </div>
-        </div>
-        <!-- contacts search -->
-        <div class="card-body border-top-blue-grey border-top-lighten-5">
-            <div class="bug-list-search">
-                <div class="bug-list-search-content">
-                    <form action="#">
-                        <div class="position-relative">
-                            <input type="search" id="search-contacts" class="form-control" placeholder="Search contacts...">
-                            <div class="form-control-position">
-                                <i class="fa fa-search text-size-base text-muted"></i>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- /contacts search -->
-
+       
+      
         <!-- contacts view -->
         <div class="card-body">
             <div class="list-group">
@@ -1001,3 +131,200 @@
       </div>
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
+	<script>
+$(document).ready(function() {
+	var url="data/person_list_data.php";
+	$.fn.dataTable.ext.errMode = 'throw';
+	var t =$('#users-contacts').DataTable({
+	
+		"oLanguage": {
+			"sEmptyTable":     "ไม่มีข้อมูลในตาราง",
+    "sInfo":           "แสดง _START_ ถึง _END_ จาก _TOTAL_ แถว",
+    "sInfoEmpty":      "แสดง 0 ถึง 0 จาก 0 แถว",
+    "sInfoFiltered":   "(กรองข้อมูล _MAX_ ทุกแถว)",
+    "sInfoPostFix":    "",
+    "sInfoThousands":  ",",
+    "sLengthMenu":     "แสดง _MENU_ แถว",
+    "sLoadingRecords": "กำลังโหลดข้อมูล...",
+    "sProcessing":     "กำลังดำเนินการ...",
+    "sSearch":         "ค้นหา: ",
+    "sZeroRecords":    "ไม่พบข้อมูล",
+    "oPaginate": {
+        "sFirst":    "หน้าแรก",
+    "sPrevious": "ก่อนหน้า",
+        "sNext":     "ถัดไป",
+    "sLast":     "หน้าสุดท้าย"
+    },
+    "oAria": {
+        "sSortAscending":  ": เปิดใช้งานการเรียงข้อมูลจากน้อยไปมาก",
+    "sSortDescending": ": เปิดใช้งานการเรียงข้อมูลจากมากไปน้อย"
+    }
+                         },
+	"ajax":{ 
+                    "url":url,
+                    "type":"post",
+                    "data":{
+                        req:'req'}
+				},
+				"aoColumns": [
+    {null:null},
+    {null:null},
+    { "data": function (data, type, dataToSet) {
+        return data.prename_name + data.fname + " " + data.lname;
+    },
+	},
+	{"data":"department_name"},
+	
+],
+"columnDefs": [
+				{
+                    "targets":1,
+                    "data": null,
+					"defaultContent":"<span class='dropdown'> <button id='btnSearchDrop2' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'"+
+					" class='btn btn-primary dropdown-toggle dropdown-menu-right'><i class='ft-settings'></i></button>"+
+					"<span aria-labelledby='btnSearchDrop2' class='dropdown-menu mt-1 dropdown-menu-right'><a href='#' class='dropdown-item'><i class='ft-edit-2'></i> แก้ไข</a>"+
+					"<a href='#' class='dropdown-item'><i class='ft-edit-2'></i> ลบ</a></span></span> ",
+					
+					'bSortable': false
+				},
+				
+				
+],
+	dom: 'flrtipB',
+	buttons: [
+             'excel','print'
+        ]
+
+});
+t.on( 'order.dt search.dt', function () {
+        t.column(0,{search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        });
+    } ).draw();
+	$('.buttons-print,.buttons-excel').addClass('btn btn-primary mr-1');
+    $('.select_head_department').select2();
+    $("#btnfrm").click(function(){
+		$("#acc").val("save");
+		$("#department_sub_forms").modal();
+        });
+
+    $('.department_sub tbody').on('click', '#edit', function () { //ดึง id มาแก้ไขจาก datatable
+            var data = t.row($(this).parents('tr')).data();
+			//alert(data['department_id']);
+			$("#department_sub_forms").modal();
+		$.post(url,{acc:"query_edit",sql:data['department_sub_id']})
+                    .done(function (data) {
+
+                        var ard = JSON.parse(data);
+                        $("#department_sub_id").val(ard['department_sub_id']);
+                        $("#department_sub_name").val(ard['department_sub_name']);
+                        $("#old_department_sub_name").val(ard['department_sub_name']);
+						$("#department_head_cid").val(ard['cid']).change()
+						$("#department_sub_status").val(ard['department_sub_status']);
+						$("#acc").val("edit");
+						$("#department_id").val(ard['department_id']).change()
+						$("#department_sub_tel").val(ard['department_sub_tel']);
+					
+                    });      
+                  
+        });
+    //จบการแก้ไข
+    $('.department_sub tbody').on('click', '#delete', function () {//ดึง id มาลบ datatable
+            var data = t.row($(this).parents('tr')).data();
+            swal({
+  title: 'คุณแน่ใจไหม?',
+  text: "การลบนี้อาจมีผลกระทบข้อมูลของโปรแกรม!",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'ใช่,ดำเนินการลบต่อไป!'
+}).then((result) => {
+  if (result.value) {
+    $.post(url, {
+                    sql:data['department_sub_id'],
+                    acc: 'delete'
+                }).done(function (data) {
+					//console.log(data);
+							msg_warnig(data);
+                            t.ajax.reload();
+                          
+                        });
+  }
+});
+
+    });
+        //ค้นหา person_id
+    	$('#department_head_cid').change(function(){
+		$.post("data/search_person_id.php", {cid:$(this).val()}
+		).done(function (data) {
+        var ard2 = JSON.parse(data);
+        $("#person_id_search").val(ard2['person_id']);			
+        });
+        });	    
+        //จบค้นหา person_id
+
+          //เริ่ม validator
+          $("#depart_subfrm").validate({
+            rules: {
+                department_sub_name:
+                        { required: true,
+                            minlength: 3,
+							remote: {
+                                url: "data/chk_used.php",
+                                type: "post",
+                                data: {
+                          old_department_sub_name: function()
+                          { return $('#old_department_sub_name').val();}
+                                      }
+                            },
+						},
+				department_id:
+						{
+							required:true
+						}
+            },
+            messages: {
+                department_sub_name: {
+                    required: "ห้ามมีค่าว่าง ",
+					minlength: "อย่างน้อย 3 ตัวอักษร",
+					remote:"ชื่อถูกใช้ไปแล้ว!"
+				},
+				department_id:{
+					 required:"กรุณาเลือก กลุ่มงาน"
+				}
+				
+			},
+				submitHandler: function (form) {
+					$.ajax({
+		 url:url,
+		 type:"POST",
+		 datatype:"json",
+		 data:{acc:$("#acc").val(),
+         department_sub_name:$("#department_sub_name").val(),
+		 department_head_cid:$("#department_head_cid").val(),
+         department_sub_id:$("#department_sub_id").val(),
+		 person_id_search:$("#person_id_search").val(),
+		 department_id:$("#department_id").val(),
+		 department_sub_tel:$('#department_sub_tel').val(),
+         department_sub_status:$("#department_sub_status").val()},
+			 success:function(data){
+				 console.log(data);
+				$('#department_sub_forms').modal('hide');
+				$("#department_sub_name").val("");
+                $("#old_department_sub_name").val("");
+				$("#person_id_search").val('');
+				$("#department_head_cid").val('').trigger('change');
+				$("#acc").val('');
+				$("#department_id").val('').trigger('change');
+				$("#department_sub_tel").val('');
+			   	msg_warnig(data);
+			 	t.ajax.reload();
+		  },
+		 
+	 });
+        },	
+
+    });//จบ validator                
+});
+</script>

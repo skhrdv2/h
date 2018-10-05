@@ -18,15 +18,13 @@ FROM hrd_person ps
       LEFT OUTER JOIN hrd_department_sub ds ON ds.department_sub_id = ps.department_sub_id
 	  LEFT OUTER JOIN hrd_position hp ON ps.position_id = hp.position_id   
       LEFT OUTER JOIN hrd_position_groups hpg ON hp.position_groups_id = hpg.position_groups_id 
-      LEFT OUTER JOIN hrd_person_status hps ON hps.person_status_id=ps.person_status_id
-     
-";
+      LEFT OUTER JOIN hrd_person_status hps ON hps.person_status_id=ps.person_status_id";
 
 if(isset($_POST["is_department"]) & isset($_POST["is_department_sub"]))
 {
  $sql .= " WHERE ps.department_id = '".$_POST["is_department"]."' AND ps.department_sub_id ='".$_POST["is_department_sub"]."'";
 }else if(isset($_POST["is_department"])){
-    $sql .= " WHERE ps.department_id = '".$_POST["is_department"]."'";
+ $sql .= " WHERE ps.department_id = '".$_POST["is_department"]."'";
 }
 
 //$sql.="AND ps.person_status_id=".$person_status;" ";
