@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-content collapse show">
                     <div class="card-body card-dashboard">
-					<p class="card-text"> ข้อเสนอแนะ
+					<p class="card-text">
 					</p>
 					<button class="btn btn-success mr-1 inputs-submin" id="btnfrm"><i class="ft-file"></i>&nbsp; เพิ่ม</button>
                         <div class="table-responsive">

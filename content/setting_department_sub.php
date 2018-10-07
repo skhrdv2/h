@@ -127,7 +127,7 @@ t.on( 'order.dt search.dt', function () {
 			$("#department_sub_forms").modal();
 		$.post(url,{acc:"query_edit",sql:data['department_sub_id']})
                     .done(function (data) {
-
+console.log(data);
                         var ard = JSON.parse(data);
                         $("#department_sub_id").val(ard['department_sub_id']);
                         $("#department_sub_name").val(ard['department_sub_name']);

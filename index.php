@@ -10,7 +10,7 @@ $Db = new MySqlConn;
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="Robust admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template.">
@@ -39,11 +39,12 @@ $Db = new MySqlConn;
     <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/calendars/clndr.css">
     <link rel="stylesheet" type="text/css" href="app-assets/fonts/meteocons/style.min.css">
     
+    
     <link rel="stylesheet" type="text/css" href="includes/select2/css/select2.min.css">
 
 
     <link rel="stylesheet" type="text/css" href="includes/bootstrap-datepicker/css/css/bootstrap-datepicker3.min.css">
-    
+    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/toggle/bootstrap-switch.min.css">
     
     
     <!-- END Page Level CSS-->
@@ -58,7 +59,7 @@ $Db = new MySqlConn;
     
     <!-- BEGIN VENDOR JS-->
     <script src="app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
-    
+    <script src="app-assets/vendors/js/forms/toggle/bootstrap-switch.min.js" type="text/javascript"></script>
     <!-- BEGIN VENDOR JS-->
       <!-- BEGIN PAGE VENDOR JS-->
       <script src="app-assets/vendors/js/tables/datatable/datatables.min.js" type="text/javascript"></script>
@@ -118,6 +119,8 @@ $Db = new MySqlConn;
                 <div class="dropdown-menu" aria-labelledby="dropdown-flag">
                 <a class="dropdown-item" href="?page=setting_department"><i class="fa fa-th-large"></i> ตั้งค่ากลุ่มงาน</a>
                 <a class="dropdown-item" href="?page=setting_department_sub"><i class="fa fa-th-list"></i> ตั้งค่าฝ่าย/งาน</a>
+                <a class="dropdown-item" href="?page=setting_prename"><i class="fa fa-pinterest-square"></i> ตั้งค่าคำนำหน้า</a>
+                <a class="dropdown-item" href="?page=setting_position"><i class="fa fa-odnoklassniki-square"></i> ตั้งค่าตำแหน่ง</a>
                 <a class="dropdown-item" href="?page=setting_org_leader"><i class="fa fa-black-tie"></i> ผู้บริหาร</a>
                
               </li>
@@ -1745,6 +1748,7 @@ $Db = new MySqlConn;
     <script src="app-assets/vendors/js/extensions/clndr.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/charts/echarts/echarts.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/extensions/unslider-min.js" type="text/javascript"></script>
+   
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN ROBUST JS-->
     <script src="app-assets/js/core/app-menu.js" type="text/javascript"></script>

@@ -35,4 +35,32 @@ if($_POST['department_name']){//ชื่อกลุ่มงาน
      echo 'true';
   }
 }
+}else if($_POST['cid']){
+  if($_POST['cid']==$_POST['chk_cid']){
+    echo 'true';
+  }else{
+  $num = $Db->num_rows("SELECT cid FROM hrd_person WHERE cid='".$_POST['cid']." '");
+    if ($num>0)  {
+    
+    echo 'false';
+  } 
+  else  {
+    
+     echo 'true';
+  }
+}
+}else if($_POST['position_name']){
+  if($_POST['position_name']==$_POST['chk_position_name']){
+    echo 'true';
+  }else{
+  $num = $Db->num_rows("SELECT position_name FROM hrd_position WHERE position_name='".$_POST['position_name']." '");
+    if ($num>0)  {
+    
+    echo 'false';
+  } 
+  else  {
+    
+     echo 'true';
+  }
+}
 }

@@ -1,6 +1,20 @@
-<?php
+<?php // ใช้งาน
 include_once('../lib/config.inc.php');
 $Db = new MySqlConn; 
+
+$table="hrd_person";
+
+$data = array(
+    "cid"=>$_POST['cid'],
+    "birthday"=>$_POST['birthday'],
+    "prename_id"=>$_POST['prename_id'],
+    "fname"=>$_POST['fname'],
+    "lname"=>$_POST['lname'],
+    "startwork_date"=>$_POST['startwork_date'],
+    "department_id"=>$_POST['department_id'],
+    "department_sub_id"=>$_POST['department_sub_id'],
+    "position_id"=>$_POST['position_id'],
+);
 if($_POST['req']=='req'){
 if(isset($_POST['person_status'])){
     $person_statusl=$_POST['person_status'];
@@ -38,6 +52,63 @@ if(isset($_POST["is_department"]) & isset($_POST["is_department_sub"]))
       
         "data" => $data
     );	
-                echo json_encode($response);   
-}       
+    echo json_encode($response);   
+}else if($_POST['acc']=="save"){ //บันทึก
+   /* $array2=array("fname"=>$_POST['fname']);
+    $data = array_merge($array1,$array2);  print_r($data);
+    เอาไว้เพิ่ม array*/
+ 
+$resualt=$Db->insert($table,$data);
+if($resualt=="success_insert"){
+ $msg=array(
+     "m"=>$resualt
+ );
+}else{
+   $msg=array(
+     "m"=>$resualt
+   ) ; 
+}
+ echo json_encode($msg);
+
+}else if($_POST['acc']=="edit"){ //แก้ไข
+   
+ $Db->where('person_id',$_POST['person_id']);
+$resualt=$Db->update($table,$data);
+if($resualt=="success_update"){
+ $msg=array(
+     "m"=>$resualt
+ );
+}else{
+   $msg=array(
+     "m"=>$resualt
+   ) ; 
+}
+ echo json_encode($msg);
+
+}elseif($_POST['acc']=="delete"){ //ลบ
+    $Db->where('person_id',$_POST['sql']);
+    $resualt=$Db->delete($table);
+    if($resualt=="success_delete"){
+       $msg=array(
+           "m"=>$resualt
+       );
+      }else{
+         $msg=array(
+           "m"=>$resualt
+         ) ; 
+      }
+       echo json_encode($msg);
+   }elseif($_POST['acc']=="query_edit"){ //เรียกข้อมูลมาแก้ไข
+ 
+    $Db->where('person_id',$_POST['sql']);
+$sql = $Db->query("",$table);
+           $a_data=array();
+         foreach ($sql as $row){
+                array_push($a_data,$row);	
+                
+            }
+echo json_encode($row);
+}
+ 
+       
      ?>
