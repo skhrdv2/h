@@ -546,9 +546,9 @@ t.on( 'order.dt search.dt', function () {
 	    </div>
 	</div>
 
-	<input type="text" id="acc">
-	<input type="text" id="chk_cid">
-	<input type="text" id="person_id">
+	<input type="hidden" id="acc">
+	<input type="hidden" id="chk_cid">
+	<input type="hidden" id="person_id">
 						
 </section>
 

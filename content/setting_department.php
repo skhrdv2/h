@@ -17,8 +17,9 @@
                 <div class="card-content collapse show">
                     <div class="card-body card-dashboard">
 					<p class="card-text">
+                    <p class="card-text"><button id="btnfrm" class="btn btn-success btn-lg"><i class="ft-plus white"></i> เพิ่มกลุ่มงาน</button></p>
 					</p>
-					<button class="btn btn-success mr-1 inputs-submin" id="btnfrm"><i class="ft-file"></i>&nbsp; เพิ่ม</button>
+					
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered  department">
                                 <thead>
@@ -96,7 +97,13 @@ $(document).ready(function() {
 				{
                     "targets":6,
                     "data": null,
-					"defaultContent":" <button type='button' id='edit' class='btn btn-outline-secondary mr-1'><i class='fa fa-pencil'></i></button> <button type='button' id='delete' class='btn btn-outline-danger mr-1'><i class='fa fa-trash-o'></i></button>",
+					"defaultContent":"<div class='form-group'><div class='btn-group mr-1 mb-1'>"+
+                                        "<button type='button' class='btn btn-icon btn-primary dropdown-toggle' data-toggle='dropdown'"+
+										" aria-haspopup='true' aria-expanded='false'><i class='fa ft-settings'></i></button>"+
+                                       	"<div class='dropdown-menu'>"+ 
+                                       " <a id='edit' class='dropdown-item' href='#'> แก้ไข</a>"+    
+                                        " <a id='delete' class='dropdown-item' href='#'>ลบ</a>"+   
+                                      	" </div> ",
 					'bSortable': false
 				},
 				
