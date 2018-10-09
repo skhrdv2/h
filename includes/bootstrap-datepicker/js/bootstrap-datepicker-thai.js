@@ -105,7 +105,7 @@
               , parts   = fmtdate && fmtdate.match(this.nonpunctuation) || []
               , trnfrm  = {
                   yy  : (thai.adj+date.getUTCFullYear()).toString().substring(2)
-                , yyyy: (date.getUTCFullYear()).toString()  /*เอา +543 ออก */
+                , yyyy: (thai.adj+date.getUTCFullYear()).toString()
                 }
                 
             if (typeof formats === 'string')

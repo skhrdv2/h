@@ -6,7 +6,7 @@ $table="hrd_person";
 
 $data = array(
     "cid"=>$_POST['cid'],
-    "birthday"=>$_POST['birthday'],
+    "birthday"=>date_to_en($_POST['birthday']),
     "prename_id"=>$_POST['prename_id'],
     "fname"=>$_POST['fname'],
     "lname"=>$_POST['lname'],
@@ -102,13 +102,16 @@ if($resualt=="success_update"){
  
     $Db->where('person_id',$_POST['sql']);
 $sql = $Db->query("",$table);
-           $a_data=array();
-         foreach ($sql as $row){
-                array_push($a_data,$row);	
-                
-            }
-echo json_encode($row);
+foreach ($sql as $row ) {
+    $q = array();
+  $q['person_id']= $row['person_id']; 
+  $q['cid']= $row['cid']; 
+  $q['prename_id']= $row['prename_id']; 
+  $q['fname']= $row['fname'];
+  $q['birthday']= date_to_th($row['birthday']);
+  $data[] = $q;
+   
 }
- 
-       
-     ?>
+        echo json_encode($q);  
+} 
+?>

@@ -204,10 +204,29 @@ class MySqlConn {
 }
 
 
+function date_to_en($date_th){
+	//$date="05/03/2525";
 
+//echo "Original data = ".$date;
+$y=substr($date_th,6, 9);
+$m=substr($date_th, 3,2);
+$d=substr($date_th, 0, 2);
+$y_eng=$y-543;
+$date_eng=$y_eng.'-'.$m.'-'.$d;
+return $date_eng;
+}
 
+function date_to_th($date_en){
+	//$date="05/03/2525";
 
-
+//echo "Original data = ".$date;
+$y=substr($date_en,0, 4);
+$m=substr($date_en, 5,2);
+$d=substr($date_en, 8, 2);
+$y_eng=$y+543;
+$date_th=$d.'/'.$m.'/'.$y_eng;
+return $date_th;
+}
 
 
 

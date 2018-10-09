@@ -14,8 +14,8 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
   
   .profile-card-with-cover .card-profile-image {
 	position: absolute;
-	top: 130px;
-	width: 100%;
+	top: 50px; /*ของเดิม 130*/
+		width: 100%;
 	text-align: center; }
 	.profile-card-with-cover .card-profile-image img.img-border {
 	  border: 5px solid #fff; }

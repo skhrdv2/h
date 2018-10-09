@@ -68,9 +68,10 @@
           <div class="sidebar"><div class="bug-list-sidebar-content">
     <!-- Predefined Views -->
     <div class="card">
-       
+	
         <!-- contacts view -->
         <div class="card-body">
+		
             <div class="list-group">
                 <a href="#" class="list-group-item active">All Contacts</a>
                 <a href="#" class="list-group-item list-group-item-action">Recently contacted</a>
@@ -109,6 +110,7 @@
       </div>
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
+	<script src="app-assets/vendors/js/forms/formatter/formatter.min.js"></script>
 	<script>
 $(document).ready(function() {
 	var url="data/person_list_data.php";
@@ -212,7 +214,7 @@ t.on( 'order.dt search.dt', function () {
                                       }
                             },
 						},
-				birthday:{required:true},
+						
 				prename_id:{required:true},
 				fname:{required:true},		
 				lname:{required:true},
@@ -272,16 +274,14 @@ t.on( 'order.dt search.dt', function () {
 			$("#person_modal").modal();
 		$.post(url,{acc:"query_edit",sql:data['person_id']})
                     .done(function (data) {
+						console.log(data);
                         var ard = JSON.parse(data);
 						$("#acc").val("edit");$("#old_cid").text(ard['cid']);$("#cid").val(ard['cid']);$("#chk_cid").val(ard['cid']);
 						$("#person_id").val(ard['person_id']);$("#birthday").val(ard['birthday']);$("#prename_id").val(ard['prename_id']);
 						$("#fname").val(ard['fname']);$("#lname").val(ard['lname']);
 						$("#startwork_date").val(ard['startwork_date']);$("#department_id").val(ard['department_id']);
 						$("#department_sub_id").val(ard['department_sub_id']);$("#position_id").val(ard['position_id']).change()
-							
-						
-
-						
+					
 					}); 
 		
         });
@@ -310,11 +310,6 @@ t.on( 'order.dt search.dt', function () {
   }
 });
     });//จบการลบ   
-	 $('.datepicker').datepicker({
-    autoclose: true,
-    language: "th-th",
-    format: 'yyyy-mm-dd',
-	todayHighlight: true,});
 	
 		//เลื้อกแผนกฝ่าย
 		$.ajax({  //แสดงชื่อแผนกทั้งหมด
@@ -357,7 +352,11 @@ t.on( 'order.dt search.dt', function () {
 	   }
    	});
 	});
-	
+	// Date dd/mm/yyyy
+	$('.date-formatter').formatter({
+		'pattern': "{{99}}/{{99}}/{{9999}}"
+	});
+
 });
 </script>
      <form class="form form-horizontal" id="personfrm" name="personfrm">
@@ -395,7 +394,7 @@ t.on( 'order.dt search.dt', function () {
 									<div class="col-md-4">
 										<div class="form-group">
 											<label for="birthday">วันเกิด<span class="red">*</span></label>
-											<input type="text" id="birthday" class="form-control date-formatter datepicker"  name="birthday" readonly>
+											<input type="text" id="birthday" class="form-control date-formatter">
 										</div>
 									</div>
 								</div>
@@ -433,7 +432,7 @@ t.on( 'order.dt search.dt', function () {
 									<div class="col-md-4">
 										<div class="form-group">
 											<label for="startwork_date">วันเริ่มทำงาน<span class="red">*</span></label>
-											<input type="text" id="startwork_date" class="form-control datepicker"  name="startwork_date">
+											<input type="text" id="startwork_date" class="form-control date-formatter"  name="startwork_date">
 										</div>
 									</div>
 									<div class="col-md-4">
